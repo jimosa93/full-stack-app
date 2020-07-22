@@ -1,0 +1,12 @@
+{
+  "name": "full-stack-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "npm start --prefix frontend"
+  },
+  "keywords": [],
+  "author": "Jorge Morales",
+  "license": "MIT"
+}
