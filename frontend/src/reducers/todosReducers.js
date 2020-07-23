@@ -13,4 +13,4 @@ const todosList = (state = { todos: [] }, { type, payload }) => {
   }
 };
 
-export default todosList;
+export { todosList };
