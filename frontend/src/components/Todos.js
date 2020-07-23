@@ -5,7 +5,6 @@ import { listTodos } from '../actions/todosActions';
 export default function Todos() {
   const todosList = useSelector(state => state.todos);
   const { todos, loading, error } = todosList;
-  console.log(todosList);
 
   const dispatch = useDispatch();
 
