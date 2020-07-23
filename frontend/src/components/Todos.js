@@ -1,26 +1,33 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-// import todos from '../actions/todosActions'
-
-// const todos = [
-//   {
-//     userId: 1,
-//     id: 1,
-//     title: 'delectus aut autem',
-//     completed: false
-//   }
-// ];
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { listTodos } from '../actions/todosActions';
 
 export default function Todos() {
-  const todos = useSelector(state => state.todos);
+  const todosList = useSelector(state => state.todos);
+  const { todos, loading, error } = todosList;
+  console.log(todosList);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(listTodos());
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div>
-      {todos.map(todo => (
-        <div key={todo.id}>
-          <h2>{todo.title}</h2>
-          <h3>Id: {todo.id}</h3>
-        </div>
-      ))}
+      {loading ? (
+        <div>Loading...</div>
+      ) : error ? (
+        <div>Error</div>
+      ) : (
+        todos.map(todo => (
+          <div key={todo.id}>
+            <h2>{todo.title}</h2>
+            <h3>Id: {todo.id}</h3>
+          </div>
+        ))
+      )}
     </div>
   );
 }
