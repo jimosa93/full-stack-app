@@ -1,11 +1,16 @@
 import React from 'react';
 import './App.css';
+import Todos from './components/Todos';
+
+import { GlobalProvider } from './context/GlobalState';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello</h1>
-    </div>
+    <GlobalProvider>
+      <div className="App">
+        <Todos />
+      </div>
+    </GlobalProvider>
   );
 }
 
